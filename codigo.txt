@@ -1,0 +1,37 @@
+    this.animation = brokenBoatAnimation;
+    this.speed = 0.05;
+    this.width = 300;
+    this.height = 300;
+    this.isBroken = true;
+    setTimeout(() => {
+      Matter.World.remove(world, boats[index].body);
+      boats.splice(index, 1);
+    }, 2000);
+--------------------------------------------------------------------
+      var collision = Matter.SAT.collides(balls[i].body, boats[j].body);
+      if (collision.collided) {
+        boats[j].remove(j);
+        Matter.World.remove(world, balls[i].body);
+        balls.splice(i, 1);
+        i--;
+        }
+-----------------------------------------------------------------------
+  backgroundMusic = loadSound("./assets/background_music.mp3");
+  waterSound = loadSound("./assets/cannon_water.mp3");
+  pirateLaughSound = loadSound("./assets/pirate_laugh.mp3");
+  cannonExplosion = loadSound("./assets/cannon_explosion.mp3");
+-----------------------------------------------------------------------------
+function gameOver() {
+  swal(
+    {
+      title: `¡Fin del juego!`,
+      confirmButtonText: "Jugar de nuevo"
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        location.reload();
+      }
+    }
+  );
+}
+--------------------------------------------------------------------------------------
